@@ -4,7 +4,7 @@ $(document).ready(function ($) {
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
         }
     });
-
+    var index = 0;
     $("#ADDITEM").on('click', (function (e) {
         e.preventDefault();
         var url = 'store';
