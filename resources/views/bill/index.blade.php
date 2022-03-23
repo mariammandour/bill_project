@@ -82,6 +82,7 @@
         <button type="submit" class="btn btn-primary p-3 mt-5" id="save">Save the Bill</button>
     </form>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.1/jquery.validate.min.js"></script>
     <script src="{{ asset('js/bill.js') }}"></script>
 </body>
 

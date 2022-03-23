@@ -4,7 +4,7 @@ $(document).ready(function ($) {
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
         }
     });
-    var index = 0;
+
     $("#ADDITEM").on('click', (function (e) {
         e.preventDefault();
         var url = 'store';
@@ -29,7 +29,7 @@ $(document).ready(function ($) {
         var formData = {
             client: $('#client').val(),
             store_money: $('#store_money').val(),
-            id:$('#item').val(),
+            id: $('#item').val(),
             item: $('#item').val(),
             quantity: $('#quantity').val(),
             final_money: $('input[name=final_money]').val(),
@@ -112,5 +112,30 @@ $(document).ready(function ($) {
 
     }));
 
+    //validate form
+    $("form").validate({
+        rules: {
+            quantity: {
+                min:1,
+                required:true
+            },
+            client:"required",
+            store_money:"required",
+            item:"required",
+        },
+        messages: {
+            quantity: {
+                min: 'can not be min than 1',
+                required:"Please enter the quantity",
+            },
+            client: "Please enter your client",
+            store_money:"Please enter your store_money",
+            item:"Please enter your item",
+        },
+        
+        submitHandler: function (form) {
+            form.submit();
+        }
+    });
 });
 
