@@ -24,8 +24,8 @@ $(document).ready(function ($) {
 
 
         $('#input_hidden_field').val(JSON.stringify(TableArray));
-        var value = $('#input_hidden_field').val(); 
-        value = JSON.parse(value);
+        // var value = $('#input_hidden_field').val();
+        // value = JSON.parse(value);
         var formData = {
             client: $('#client').val(),
             store_money: $('#store_money').val(),
@@ -33,7 +33,7 @@ $(document).ready(function ($) {
             item: $('#item').val(),
             quantity: $('#quantity').val(),
             final_money: $('input[name=final_money]').val(),
-            table_data: value,
+            table_data: JSON.parse($('#input_hidden_field').val()),
         };
 
         var cells = new Array();
@@ -91,6 +91,24 @@ $(document).ready(function ($) {
 
         var final = $('#total').html();
         $('input[name=final_money]').val(final);
+
+        var TableArray = [];
+        $("table tr").each(function () {
+            var obj = [
+                {
+                    id: $(this).find('td:eq(0)').text(),
+                    name: $(this).find('td:eq(1)').text(),
+                    quantity: $(this).find('td:eq(2) input').val(),
+                    total: $(this).find('td:eq(5)').text()
+                },
+            ];
+            TableArray.push(JSON.stringify(obj));
+        });
+
+
+        $('#input_hidden_field').val(JSON.stringify(TableArray));
+        var value = $('#input_hidden_field').val();
+        value = JSON.parse(value);
 
     }));
 
