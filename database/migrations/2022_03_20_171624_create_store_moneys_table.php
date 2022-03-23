@@ -15,6 +15,8 @@ return new class extends Migration
     {
         Schema::create('store_moneys', function (Blueprint $table) {
             $table->id();
+            $table->string('name');
+            $table->float('money_amount');
             $table->timestamps();
         });
     }

@@ -5,13 +5,14 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class item extends Model
+class bill_item extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'name',
+        'bill_id',
+        'client_id',
+        'item_id',
         'quantity',
-        'cost_price',
-        'sale_price',
+        'total_price',
     ];
 }
